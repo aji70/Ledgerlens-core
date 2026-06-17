@@ -32,6 +32,7 @@ logger = logging.getLogger("ledgerlens.pipeline")
 
 def run(
     asset_pairs: list[tuple[str | None, str | None]] | None = None,
+    multi_pair: bool = False,
     no_submit: bool = False,
 ) -> list[RiskScore]:
     """Run one scoring pass over the given asset pairs and return the resulting scores.

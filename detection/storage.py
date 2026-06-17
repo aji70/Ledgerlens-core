@@ -39,6 +39,17 @@ CREATE TABLE IF NOT EXISTS on_chain_submissions (
 );
 CREATE INDEX IF NOT EXISTS idx_submissions_wallet ON on_chain_submissions (wallet);
 CREATE INDEX IF NOT EXISTS idx_submissions_status ON on_chain_submissions (status);
+CREATE TABLE IF NOT EXISTS pair_correlations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pair_a TEXT NOT NULL,
+    pair_b TEXT NOT NULL,
+    correlation_r REAL NOT NULL,
+    method TEXT NOT NULL,
+    shared_wallet_count INTEGER NOT NULL,
+    timestamp TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_pair_correlations_pair_a ON pair_correlations (pair_a);
+CREATE INDEX IF NOT EXISTS idx_pair_correlations_pair_b ON pair_correlations (pair_b);
 """
 
 
